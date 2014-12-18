@@ -1,0 +1,8 @@
+.casilla{
+    border: 1px solid #000;
+    height: 32px;
+    width: 32px;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 32px
+}

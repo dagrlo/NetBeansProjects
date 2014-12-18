@@ -1,0 +1,13 @@
+td {
+    width:200px;
+}
+
+tr {
+    background-color:#000;
+    color:#fff;
+}
+
+.otro{
+    background-color: #ff0000;
+    color:#0f0;
+}

@@ -1,0 +1,66 @@
+body{
+    background-color: #fff;
+    margin: 0;  
+    padding: 0;    
+    font-family: sans-serif;
+}
+
+fieldset {
+    width:360px;
+    margin-top:32px;
+    margin-left:  auto;  
+    margin-right:  auto;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+label{
+    width:150px;
+    float:left;
+    font-weight: bold;
+}
+
+input{
+    width:200px;
+}
+
+#sBtn{
+ margin-left: -38px;    
+}
+
+#V, #M{
+    width:80px;
+}
+
+select{
+    width:200px;
+    background-color: #fff;
+}
+
+#envia,#cancela{
+    text-align: right;
+    width:auto;
+}
+
+#botones{
+    margin-left: 220px;
+}
+
+#volver{
+    margin-left: 80px;
+}
+
+#tituloCuenta{
+    font-weight: bold;
+    font-size: 24px;
+    font-style: italic;
+}
+
+#boton{
+    display: block;
+    width:80px;
+    margin:0px auto;
+   
+    
+}

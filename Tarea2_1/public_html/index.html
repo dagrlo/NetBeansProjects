@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <LINK href="estilos.css" rel="stylesheet" type="text/css">
+        
+        <script>
+            var casillas=[];
+            var pos=0;
+                        
+            window.onload=function(){          
+                casillas=document.getElementsByClassName("casilla");                
+                for (var i=0;i<casillas.length;i++){
+                    casillas[i].addEventListener("click",manejaClick);
+                    casillas[i].id=i;
+                }                
+                pintaFondo(pos);
+            }
+            
+            function manejaClick(){
+                borraTodas();
+                pintaFondo(this.id);                
+                pos=this.id;
+                alert(pos);
+            }
+            
+            function manejaTeclado(e){                                
+                if (isNaN(String.fromCharCode(e.keyCode))===false){
+                    casillas[pos].innerHTML=String.fromCharCode(e.keyCode);               
+                } else {
+                    if (String.fromCharCode(e.keyCode).toUpperCase()==="C") {
+                        borraTodas();
+                        borraTodasTexto();
+                    }
+                }
+            }
+            
+            function izquierda(){
+                if (pos>0){
+                    if (pos%9===0){
+                        pos=pos+8;
+                    } else {
+                        pos=pos-1;
+                    }
+                } else {
+                    pos=8;
+                }                
+            }
+            
+            function derecha(){
+                if (pos<80){
+                    if ((pos%9==0)&&(pos!=0)){
+                       pos=pos-8;
+                    } else {
+                        pos=pos+1;   
+                    }                    
+                } else {
+                    pos=72;
+                }
+            }
+            
+            function arriba(){
+                if (pos>8){                    
+                    pos=pos-9;
+                } else {
+                    pos=pos+72;
+                }
+            }
+            
+            function abajo(){
+                if (pos<72){
+                    pos=pos+9;
+                } else {
+                    pos=pos-72;
+                }
+            }
+            
+            function manejaCursores(e){                                
+                switch (e.keyCode){
+                    case 37:izquierda();break;
+                    case 39:derecha();break;
+                    case 38:arriba();break;
+                    case 40:abajo();break;
+                    case 46:borraEste();break;
+                }
+                borraTodas();
+                pintaFondo(pos);
+            }
+            
+            function borraEste(){
+                casillas[pos].innerHTML="";
+            }
+            
+            function borraTodas(){
+                for (var i=0;i<casillas.length;i++){
+                  casillas[i].style.backgroundColor='#fff';  
+                }
+            }
+            
+            function borraTodasTexto(){
+                for (var i=0;i<casillas.length;i++){
+                  casillas[i].innerHTML="";
+                }
+            }
+            
+            function dame1D(x,y){
+                return (y*9)+x;
+            }
+            
+            function pintaFondo(pos){
+                casillas[pos].style.backgroundColor='#ccc';
+            }
+            
+            
+        </script>
+    </head>
+    <body onkeypress="manejaTeclado(event)" onkeydown="manejaCursores(event)">
+      
+        
+        
+        <table id="tabla">
+            <tr>
+                <td><div class="casilla"></div></td><td><div class="casilla"></div></td><td><div class="casilla"></div></td>
+                <td><div class="casilla"></div></td><td><div class="casilla"></div></td><td><div class="casilla"></div></td>
+                <td><div class="casilla"></div></td><td><div class="casilla"></div></td><td></td><td><div class="casilla"></div></td>
+            </tr>
+            <tr>
+                <td><div class="casilla"></div></td><td><div class="casilla"></div></td><td><div class="casilla"></div></td>
+                <td><div class="casilla"></div></td><td><div class="casilla"></div></td><td><div class="casilla"></div></td>
+                <td><div class="casilla"></div></td><td><div class="casilla"></div></td><td></td><td><div class="casilla"></div></td>
+            </tr>
+            <tr>
+                <td><div class="casilla"></div></td><td><div class="casilla"></div></td><td><div class="casilla"></div></td>
+                <td><div class="casilla"></div></td><td><div class="casilla"></div></td><td><div class="casilla"></div></td>
+                <td><div class="casilla"></div></td><td><div class="casilla"></div></td><td></td><td><div class="casilla"></div></td>
+            </tr>
+            <tr>
+                <td><div class="casilla"></div></td><td><div class="casilla"></div></td><td><div class="casilla"></div></td>
+                <td><div class="casilla"></div></td><td><div class="casilla"></div></td><td><div class="casilla"></div></td>
+                <td><div class="casilla"></div></td><td><div class="casilla"></div></td><td></td><td><div class="casilla"></div></td>
+            </tr>
+            <tr>
+                <td><div class="casilla"></div></td><td><div class="casilla"></div></td><td><div class="casilla"></div></td>
+                <td><div class="casilla"></div></td><td><div class="casilla"></div></td><td><div class="casilla"></div></td>
+                <td><div class="casilla"></div></td><td><div class="casilla"></div></td><td></td><td><div class="casilla"></div></td>
+            </tr>
+            <tr>
+                <td><div class="casilla"></div></td><td><div class="casilla"></div></td><td><div class="casilla"></div></td>
+                <td><div class="casilla"></div></td><td><div class="casilla"></div></td><td><div class="casilla"></div></td>
+                <td><div class="casilla"></div></td><td><div class="casilla"></div></td><td></td><td><div class="casilla"></div></td>
+            </tr>
+            <tr>
+                <td><div class="casilla"></div></td><td><div class="casilla"></div></td><td><div class="casilla"></div></td>
+                <td><div class="casilla"></div></td><td><div class="casilla"></div></td><td><div class="casilla"></div></td>
+                <td><div class="casilla"></div></td><td><div class="casilla"></div></td><td></td><td><div class="casilla"></div></td>
+            </tr>
+            <tr>
+                <td><div class="casilla"></div></td><td><div class="casilla"></div></td><td><div class="casilla"></div></td>
+                <td><div class="casilla"></div></td><td><div class="casilla"></div></td><td><div class="casilla"></div></td>
+                <td><div class="casilla"></div></td><td><div class="casilla"></div></td><td></td><td><div class="casilla"></div></td>
+            </tr>
+            <tr>
+                <td><div class="casilla"></div></td><td><div class="casilla"></div></td><td><div class="casilla"></div></td>
+                <td><div class="casilla"></div></td><td><div class="casilla"></div></td><td><div class="casilla"></div></td>
+                <td><div class="casilla"></div></td><td><div class="casilla"></div></td><td></td><td><div class="casilla"></div></td>
+            </tr>
+        </table>
+     
+    </body>
+</html>
